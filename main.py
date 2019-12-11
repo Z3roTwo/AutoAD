@@ -15,6 +15,8 @@ userfile = "Users.csv"
 amount = 0
 amountloop = True
 fileloop = True
+script_dir = os.path.dirname(__file__)
+
 
 # Menu
 while menu:
@@ -28,7 +30,7 @@ Val: ''')
             while fileloop:
                 userfile = input("Välj .csv fil: ")
                 try:
-                    with open("PUT_USER_CSV_FILES_HERE\\" + userfile) as CSVfile:
+                    with open(userfile) as CSVfile:
                         readCSV = csv.reader(CSVfile, delimiter=',')
                         names = []
                         surnames = []
