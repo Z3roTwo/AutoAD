@@ -67,7 +67,7 @@ Val: ''')
                                 returned_value = subprocess.call(cmd, shell=True)
                                 print("returned_value: ", returned_value)
                             elif systemOS == "Linux":
-                                cmd = 'useradd --password', passwords[arraynumber1], '-c', names[arraynumber1], surnames[arraynumber1], '-m', names[arraynumber1] + '.' + surnames[arraynumber1]
+                                cmd = f'sudo useradd --password "{passwords[arraynumber1]}" -c "{names[arraynumber1]} {surnames[arraynumber1]}" -m {names[arraynumber1]}.{surnames[arraynumber1]}'
                                 returned_value = subprocess.call(cmd, shell=True)
                                 print("returned_value: ", returned_value)
                             else:
