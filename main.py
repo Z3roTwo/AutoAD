@@ -15,7 +15,6 @@ userfile = "Users.csv"
 amount = 0
 amountloop = True
 fileloop = True
-script_dir = os.path.dirname(__file__)
 
 
 # Menu
