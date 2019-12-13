@@ -65,6 +65,8 @@ Val: ''')
 
                             if systemOS == "Windows":
                                 cmd = f'New-ADUser -Name "{names[arraynumber1]} {surnames[arraynumber1]}" -GivenName "{names[arraynumber1]}" -Surname "{surnames[arraynumber1]}" -SamAccountName "{names[arraynumber1]}" -AccountPassword (ConvertTo-SecureString "{passwords[arraynumber1]}" -AsPlainText -force) -passThru -ChangePasswordAtLogon $True'
+                                cmd2 = f'echo "{passwords[arraynumber1]}" >> Passwords.txt'
+                                echothepass = subprocess.call(['powershell', cmd2])
                                 returned_value = subprocess.call(['powershell', cmd])
                                 print("returned_value: ", returned_value)
                             elif systemOS == "Linux":
