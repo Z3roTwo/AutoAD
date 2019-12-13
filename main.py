@@ -65,8 +65,7 @@ Val: ''')
 
                             if systemOS == "Windows":
                                 cmd = f'New-ADUser -Name "{names[arraynumber1]} {surnames[arraynumber1]}" -GivenName "{names[arraynumber1]}" -Surname "{surnames[arraynumber1]}" -SamAccountName "{names[arraynumber1]}" -AccountPassword (ConvertTo-SecureString "{passwords[arraynumber1]}" -AsPlainText -force) -passThru -ChangePasswordAtLogon $True'
-                                cmdmd = 'New-ADUser -Name ' + names[arraynumber1] + " " + surnames[arraynumber1] + ' -GivenName ' + names[arraynumber1] + ' -Surname ' + surnames[arraynumber1] + ' -SamAccountName ' + names[arraynumber1] + '.' + surnames[arraynumber1] + ' -AccountPassword ' + passwords[arraynumber1] + ' -Enabled $true'
-                                returned_value = subprocess.call(cmd, shell=True)
+                                returned_value = subprocess.call(['powershell', cmd])
                                 print("returned_value: ", returned_value)
                             elif systemOS == "Linux":
                                 cmd = f'sudo useradd --password "{passwords[arraynumber1]}" -c "{names[arraynumber1]} {surnames[arraynumber1]}" -m {names[arraynumber1]}.{surnames[arraynumber1]}'
