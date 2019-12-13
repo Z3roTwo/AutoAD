@@ -64,7 +64,7 @@ Val: ''')
                             print(names[arraynumber1], surnames[arraynumber1], passwords[arraynumber1])
 
                             if systemOS == "Windows":
-                                cmd = f'New-ADUser -Name "{names[arraynumber1]} {surnames[arraynumber1]}" -GivenName "{names[arraynumber1]}" -Surname "{surnames[arraynumber1]}" -SamAccountName "{names[arraynumber1]}" -AccountPassword (ConvertTo-SecureString "{passwords[arraynumber1]}" -AsPlainText -force) -passThru -ChangePasswordAtLogon $True'
+                                cmd = f'New-ADUser -Name "{names[arraynumber1]} {surnames[arraynumber1]}" -GivenName "{names[arraynumber1]}" -Surname "{surnames[arraynumber1]}" -SamAccountName "{names[arraynumber1]}" -AccountPassword (ConvertTo-SecureString "{passwords[arraynumber1]}" -AsPlainText -force) -passThru -ChangePasswordAtLogon $True -Enabled $True'
                                 cmd2 = f'echo "{passwords[arraynumber1]}" >> Passwords.txt'
                                 echothepass = subprocess.call(['powershell', cmd2])
                                 returned_value = subprocess.call(['powershell', cmd])
